@@ -16,3 +16,4 @@ pyppeteer2==0.2.2
 robotframework-PuppeteerLibrary==1.2.8
 robotframework-jenkinslibrary
 robotframework-faker==5.0.0
+wxPython==4.0.7.post2
