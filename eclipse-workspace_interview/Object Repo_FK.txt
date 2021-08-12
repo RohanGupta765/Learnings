@@ -1,0 +1,15 @@
+
+WebElement closeLogin = driver.findElement(By.xpath(""));
+FK
+
+		WebElement closeLogin = driver.findElement(By.xpath("//form[@autocomplete=\"on\"]//ancestor::div//button"));
+		WebElement searchProduct = driver.findElement(By.xpath("//input[@name='q' and @type='text']"));
+		WebElement categoryMob = driver.findElement(By.xpath("//a[@title='Mobiles' and text()='Mobiles']"));
+		WebElement sortHtoL = driver.findElement(By.xpath("//div[text()='Price -- High to Low']"));
+		WebElement fkassured = driver.findElement(By.xpath("//span[@class='question']//parent::div//preceding-sibling::label/input"));
+		List<WebElement> listedNames = driver.findElements(By.xpath("//div[@class='MIXNux']/following-sibling::div/div[1]/div[1]"));
+		List<WebElement>  listedPrice = driver.findElements(By.xpath("//div[@class='MIXNux']/following-sibling::div/div[2]//div[1]/div/div[1]"));
+		List<WebElement>  listedLink = driver.findElements(By.xpath("//div[@class='MIXNux']/parent::a"));
+		WebElement recordCount = driver.findElement(By.xpath("//a[text()='Home']//ancestor::div[2]//following-sibling::span"));
+		
+		

@@ -1,0 +1,60 @@
+package InterviewA;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import POMPages.MiroSignUpPOM;
+import Utilities.SourceClass;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class UsrRegistrationPosCases {
+	WebDriver driver;
+	
+	@BeforeTest
+	public void setTestConfig()
+	{
+		try {
+			String browserName = SourceClass.getpropertiesValues("browser");
+			String site = SourceClass.getpropertiesValues("url");
+			System.out.println(browserName);
+			System.out.println(site);
+			driver = SourceClass.LaunchBrowser(browserName,site);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test(dataProviderClass=TestData.SourceDataprovider, dataProvider="signup")
+	public void enterUserDetails(String username, String password, String emailID)
+	{
+		MiroSignUpPOM signup = new MiroSignUpPOM(driver);
+		signup.enterEmail("Dummy@test.com");
+		System.out.println(username + password + emailID);
+	}
+	
+	@Test
+	public void enterPWDDetails()
+	{
+		MiroSignUpPOM signup = new MiroSignUpPOM(driver);
+		signup.enterPassword("DummyPWD");
+	}
+	@AfterTest
+	public void closeBrowsers()
+	{
+		driver.quit();
+	}
+
+}

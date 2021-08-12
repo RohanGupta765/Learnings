@@ -1,0 +1,78 @@
+package POMPages;
+
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class MiroSignUpPOM {
+	
+	public MiroSignUpPOM(WebDriver basedriver)
+	{
+		PageFactory.initElements(basedriver,this);
+	}
+	
+	@FindBy (xpath=("//button[@id='onetrust-accept-btn-handler' or contains(text(),'Accept All Cookies')]"))
+	private WebElement accept_cookies_btn;
+	
+	
+	@FindBy (xpath=("//button[@id='onetrust-pc-btn-handler' or contains(text(),'Cookies Settings')]"))
+	private WebElement cookie_setting_btn;
+
+	@FindBy (xpath=("//input[@name='signup[name]' or @id='name' ]"))
+	private WebElement signup_name_txt;
+	
+	@FindBy (xpath=("//input[@name='signup[email]' or @id='email']"))
+	private WebElement signup_email_txt;
+	
+	@FindBy (xpath=("//input[@name='signup[password]' or @id='password']"))
+	private WebElement signup_pwd_txt;
+	
+	@FindBy (xpath=("//input[@id='signup-terms' and @type='checkbox']"))
+	private WebElement signup_terms_chkbx;
+	
+	@FindBy (xpath=("//input[@id='signup-subscribe' and @type='checkbox']"))
+	WebElement signup_subscribe_chkbx;
+	
+	@FindBy (xpath=("//button[@class='signup__submit' and @type='submit']"))
+	WebElement signup_submit_btn;
+	
+	@FindBy (xpath=("//div[@class='signup__btn-text' and contains(text(),'Google')]"))
+	WebElement signup_google_btn;
+	
+	@FindBy (xpath=("//div[@class='cxl-social']//li[@class='cxl-benefit' and contains(text(),'Included')]"))
+	WebElement benefits_included_lbl;
+	
+	@FindBy (xpath=("//div[@class='cxl-social']//ul[@class='cxl-benefit-container']/li"))
+	List<WebElement> benefits_all_lbl;
+	
+	@FindBy (xpath=("//div[@class='signup__social-container']//button[contains(@id,'slack')]"))
+	WebElement signup_social_slack_btn;
+	
+	@FindBy (xpath=("//div[@class='signup__social-container']//button[contains(@id,'office')]"))
+	WebElement signup_social_office_btn;
+	
+	@FindBy (xpath=("//div[@class='signup__social-container']//button[contains(@id,'apple')]"))
+	WebElement signup_social_apple_btn;
+	
+	@FindBy (xpath=("//div[@class='signup__social-container']//button//img[contains(@alt,'Facebook')]"))
+	WebElement signup_social_facebook_btn;
+	
+	@FindBy (xpath=("//div//a[@title='Miro Logo']"))
+	WebElement signup_MiroLogo_btn;
+	
+	@FindBy (xpath=("//span[contains(text(),'Sign in')]"))
+	WebElement signup_signin_btn;
+
+
+
+
+public void closeLoginPopup()
+{
+clsoeLoginpopup.click();
+}
+
+
+}

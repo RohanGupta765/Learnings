@@ -1,0 +1,69 @@
+package POMPages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class MiroSignUpPOM {
+	@FindBy (xpath=("//button[@id='onetrust-accept-btn-handler' or contains(text(),'Accept All Cookies')]"))
+	WebElement accept_cookies_btn;
+	
+	@FindBy (xpath=("//button[@id='onetrust-pc-btn-handler' or contains(text(),'Cookies Settings')]"))
+	WebElement cookie_setting_btn;
+
+	@FindBy (xpath=("//input[@name='signup[name]' or @id='name' ]"))
+	WebElement signup_name_txt;
+	
+	@FindBy (xpath=("//input[@name='signup[email]' or @id='email']"))
+	WebElement signup_email_txt;
+	
+	@FindBy (xpath=("//input[@name='signup[password]' or @id='password']"))
+	WebElement signup_pwd_txt;
+	
+	@FindBy (xpath=("//input[@id='signup-terms' and @type='checkbox']"))
+	WebElement signup_terms_chkbx;
+	
+	@FindBy (xpath=("//input[@id='signup-subscribe' and @type='checkbox']"))
+	WebElement signup_subscribe_chkbx;
+	
+	@FindBy (xpath=("//button[@class='signup__submit' and @type='submit']"))
+	WebElement signup_submit_btn;
+	
+	@FindBy (xpath=("//div[@class='signup__btn-text' and contains(text(),'Google')]"))
+	WebElement signup_google_btn;
+	
+	@FindBy (xpath=("//div[@class='cxl-social']//li[@class='cxl-benefit' and contains(text(),'Included')]"))
+	WebElement benefits_included_lbl;
+	
+	@FindBy (xpath=("//div[@class='cxl-social']//ul[@class='cxl-benefit-container']/li"))
+	WebElement accept_cookies_btn;
+	
+	@FindBy (xpath=("//button[@id='onetrust-accept-btn-handler' or contains(text(),'Accept All Cookies')]"))
+	WebElement accept_cookies_btn;
+	
+	@FindBy (xpath=("//button[@id='onetrust-accept-btn-handler' or contains(text(),'Accept All Cookies')]"))
+	WebElement accept_cookies_btn;
+	
+	@FindBy (xpath=("//button[@id='onetrust-accept-btn-handler' or contains(text(),'Accept All Cookies')]"))
+	WebElement accept_cookies_btn;
+	
+	@FindBy (xpath=("//button[@id='onetrust-accept-btn-handler' or contains(text(),'Accept All Cookies')]"))
+	WebElement accept_cookies_btn;
+	
+	@FindBy (xpath=("//button[@id='onetrust-accept-btn-handler' or contains(text(),'Accept All Cookies')]"))
+	WebElement accept_cookies_btn;
+
+	public MiroSignUpPOM(WebDriver basedriver)
+{
+PageFactory.initElements(basedriver,this);
+}
+
+
+public void closeLoginPopup()
+{
+clsoeLoginpopup.click();
+}
+
+
+}

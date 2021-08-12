@@ -1,0 +1,103 @@
+package Utilities;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class SourceClass {
+	static WebDriver  driver;
+	public static WebDriver LaunchBrowser(String browser, String site)
+	{
+	if(browser.equalsIgnoreCase("Chrome"))
+		{WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();}
+	else if(browser.equalsIgnoreCase("Firefox"))
+		{WebDriverManager.firefoxdriver().setup();
+		driver = new FirefoxDriver();}
+	else if(browser.equalsIgnoreCase("Edge"))
+		{WebDriverManager.edgedriver().setup();
+		driver = new EdgeDriver();}
+	else if(browser.equalsIgnoreCase("Opera"))
+		{WebDriverManager.edgedriver().setup();
+		driver = new OperaDriver();
+		}
+	
+	driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+	driver.get(site);
+	driver.manage().window().maximize();
+	return driver;
+	}
+	
+	public static String getpropertiesValues(String key) throws IOException
+	{
+		
+		File f = new File(System.getProperty("user.dir") + "/src/test/java/Utilities/configure.properties");
+		FileInputStream str = new FileInputStream(f);
+		Properties p = new Properties();
+		p.load(str);
+		String val = p.getProperty(key);
+		return val;
+	}
+	
+	public static void GetHtmlReports() {
+		{	
+			ExtentHtmlReporter lhtml;
+			ExtentReports lReports;
+			
+			lhtml = new ExtentHtmlReporter(System.getProperty("user.dir")+"/ExtReportDemo.html");
+			
+			lhtml.config().setDocumentTitle("Miro Automation Demo ");
+			lhtml.config().setReportName("User Registration");
+			lhtml.config().setTheme(Theme.STANDARD);
+			
+			lReports = new ExtentReports();
+			lReports.attachReporter(lhtml);
+				
+			lReports.setSystemInfo("Automation Test Engineer", "If you are bug then Im your Dad");
+//			return eReports;
+			
+			System.out.println("*****Initializing Extent Report******");
+			
+			
+		}
+
+	  }
+		
+		public static void endReport()
+		{
+			eReports.flush();
+		}
+		
+		public static String CaptureSS(WebDriver driver, String ssName) throws IOException
+		{
+			String datename = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+			TakesScreenshot ts = (TakesScreenshot) driver;
+			File source = ts.getScreenshotAs(OutputType.FILE);
+			String destn = System.getProperty("user.dir") + "/captures/" + ssName + datename + ".png";
+			File final_destn = new File(destn);
+			FileUtils.copyFile(source, final_destn);
+			return destn;
+			
+		}
+
+}
+

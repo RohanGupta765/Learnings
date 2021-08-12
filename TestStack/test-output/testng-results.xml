@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-08-12T17:06:13 IST" name="Suite" finished-at="2021-08-12T17:06:30 IST" duration-ms="16353">
+    <groups>
+    </groups>
+    <test started-at="2021-08-12T17:06:13 IST" name="Test" finished-at="2021-08-12T17:06:30 IST" duration-ms="16353">
+      <class name="InterviewA.FirstTest">
+        <test-method signature="TestFlipkart()[pri:0, instance:InterviewA.FirstTest@2b48a640]" started-at="2021-08-12T17:06:13 IST" name="TestFlipkart" finished-at="2021-08-12T17:06:30 IST" duration-ms="16309" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestFlipkart -->
+      </class> <!-- InterviewA.FirstTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
