@@ -1,21 +1,5 @@
-pipeline{
-	agent any
-	environment 
-	{
-    PATH = "C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.PATH}"
-    }
+node{
 	
-	stages
-	{
-
-		stage('Checkout')
-		{	
-			
-			def maven_path=tool name: 'M3', type: 'maven'
-			sh "${maven_path}/bin/mvn package"
-			
-		}
-		
 		stage('Compile Package')
 		{	
 			def maven_path=tool name: 'M3', type: 'maven'
@@ -27,6 +11,5 @@ pipeline{
 			def maven_path= tool name: 'M3', type: 'maven'
 			sh "${maven_path}/bin/mvn test"
 		}
-	 }			
-	
+	 
 }	
