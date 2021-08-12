@@ -1,6 +1,6 @@
 pipeline{
 	agent any
-			environment {
+		environment {
     PATH = "C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.PATH}"}
 	stages{
 
@@ -10,6 +10,7 @@ pipeline{
 			{
 			def maven_path= tool name: 'M3', type: 'maven'
 			sh "${maven_path}/bin/mvn package"
+			}
 			
 		}
 		
@@ -19,6 +20,7 @@ pipeline{
 			{
 			def maven_path= tool name: 'M3', type: 'maven'
 			sh "${maven_path}/bin/mvn test"
+			}
 		}
 	  }			
 	
