@@ -2,7 +2,7 @@ pipeline{
 	agent any
 	stages{
 		environment {
-    PATH = "C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.PATH}"}
+    PATH = "C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;"}
 		stage('Compile Stage')
 		{	
 			steps
