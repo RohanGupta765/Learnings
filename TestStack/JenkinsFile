@@ -2,12 +2,14 @@ pipeline{
 	agent any
 	stages{
 		stage('Compile Stage')
-		{
+		{	
+		
 			steps
 			{
 			withMaven(maven : 'M3')
-			
-			{bat 'maven clean compile'}
+			{	echo 'Hello, Maven'
+                sh 'mvn --version'
+				sh 'maven clean compile'}
 			}
 		}
 		
@@ -22,5 +24,6 @@ pipeline{
 	  }			
 	}
 	
-	
+	echo 'Hello, Maven'
+                sh 'mvn --version'
 	
