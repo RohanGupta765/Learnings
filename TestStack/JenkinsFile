@@ -1,8 +1,4 @@
 node{
-		stage('SCM Checkout')
-		{	
-			git "https://github.com/RohanGupta765/Learnings"
-		}
 		
 		stage('Compile Package')
 		{	
