@@ -1,0 +1,25 @@
+pipeline{
+	agent any
+	stages{
+		stage('Compile Stage')
+		{
+			steps
+			{
+			withmaven(maven : 'M3')
+			sh 'maven clean compile'
+			}
+		}
+		
+		stage('Testing Stage')
+		{
+			steps
+			{
+			withmaven(maven : 'M3')
+			sh 'maven test'
+			}
+		}
+	  }			
+	}
+	
+	
+	
