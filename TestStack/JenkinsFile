@@ -4,22 +4,21 @@ pipeline{
     PATH = "C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.PATH}"}
 	stages{
 
-		stage('Compile Stage')
+		stage('Compile Package')
 		{	
 			steps
 			{
-			withMaven(maven : 'M3')
-			{	sh 'mvn clean compile'}
-			}
+			def maven_path= tool name: 'M3', type: 'maven'
+			sh "${maven_path}/bin/mvn package"
+			
 		}
 		
-		stage('Testing Stage')
+				stage('Testing Stage')
 		{
 			steps
 			{
-			withMaven(maven : 'M3')
-			{sh 'mvn test'}
-			}
+			def maven_path= tool name: 'M3', type: 'maven'
+			sh "${maven_path}/bin/mvn test"
 		}
 	  }			
 	
