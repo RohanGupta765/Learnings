@@ -1,7 +1,7 @@
 node{
 		stage('SCM Checkout')
 		{	
-			git "https://github.com/RohanGupta765/Learnings/LearnTestOne"
+			git "https://github.com/RohanGupta765/Learnings"
 		}
 		
 		stage('Compile Package')
@@ -10,7 +10,7 @@ node{
 			sh "${maven_path}/bin/mvn package"
 		}
 		
-				stage('Testing Stage')
+		stage('Testing Stage')
 		{
 			def maven_path= tool name: 'M3', type: 'maven'
 			sh "${maven_path}/bin/mvn test"
