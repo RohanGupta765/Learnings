@@ -1,15 +1,21 @@
 pipeline{
 	agent any
 	stages{
-		stage('Compile Stage')
+	
+			stage('Config Stage')
 		{	
-		
 			steps
 			{
 			withMaven(maven : 'M3')
-			{	echo 'Hello, Maven'
-                sh 'mvn --version'
-				sh 'maven clean compile'}
+			{	sh 'mvn -Dmaven.test.failure.ignore=true clean package'}
+			}
+		}
+		stage('Compile Stage')
+		{	
+			steps
+			{
+			withMaven(maven : 'M3')
+			{	sh 'maven clean compile'}
 			}
 		}
 		
