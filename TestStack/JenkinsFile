@@ -1,5 +1,9 @@
 node{
-	
+		stage('SCM Checkout')
+		{	
+			git "https://github.com/RohanGupta765/Learnings/LearnTestOne"
+		}
+		
 		stage('Compile Package')
 		{	
 			def maven_path=tool name: 'M3', type: 'maven'
